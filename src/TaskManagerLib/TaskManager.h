@@ -1,3 +1,12 @@
+/*
+ * TaskManager.h
+ *
+ * Here is the TaskManager class, which manages the overall application logic
+ * This class operates on a collection of Task objects, providing task creation, modification, persistence, and filtering functionality
+ *
+ * Built with C++ using CMake
+ * 
+ */
 #pragma once
 #include<string>
 #include<vector>

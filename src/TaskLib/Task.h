@@ -1,3 +1,12 @@
+/*
+ * Task.h
+ *
+ * Declares the Task class, which represents a single task entity
+ * The class stores task metadata such as name, description, priority, and status
+ *
+ * Built with C++ using CMake
+ * 
+ */
 #pragma once
 #include<string>
 enum enumPriority { NoPriority, Low, Medium, High };

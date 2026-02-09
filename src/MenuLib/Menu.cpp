@@ -1,17 +1,29 @@
+/*
+ * Menu.cpp
+ *
+ * Here is the Menu class logic implemented, handling console rendering, keyboard input, and user navigation within text-based menus
+ *
+ * Built with C++ using CMake
+ *
+ */
 #include"Menu.h"
 #include"iostream"
 #include<conio.h>
 
+//The constructor of the class
 Menu::Menu(const std::string& Title, const std::vector<std::string>& Options) : Title(Title), Options(Options) {}
 
+//Method to clear the console
 void Menu::clearScreen() {
 	system("cls");
 }
 
+//Method to pause the console
 void Menu::pauseScreen() {
 	system("pause");
 }
 
+//Methd to show the menu
 int Menu::showMenu() {
 	char button;
 	while (true) {

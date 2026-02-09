@@ -1,3 +1,11 @@
+/*
+ * TaskManager.cpp
+ *
+ * This .cpp file implements the TaskManager class logic, handling task collection management, file persistence
+ *
+ * Built with C++ using CMake
+ *
+ */
 #include"TaskManager.h"
 #include"../MenuLib/Menu.h"
 #include<iostream>
@@ -5,6 +13,7 @@
 #include<memory>
 #include<sstream>
 
+//Method to set the name of a task
 void TaskManager::setTaskName() {
 	std::string Name;
 	std::cout << "Input The Task Name: ";
@@ -12,6 +21,7 @@ void TaskManager::setTaskName() {
 	taskOfVector->setName(Name);
 }
 
+//Method to edit the name of a task
 void TaskManager::editTaskName() {
 	int index;
 	std::string Name;
@@ -29,6 +39,7 @@ void TaskManager::editTaskName() {
 	}
 }
 
+//Method to set the description of a task
 void TaskManager::setTaskDescription() {
 	std::string Description;;
 	std::cout << "Input The Task Description: ";
@@ -36,6 +47,7 @@ void TaskManager::setTaskDescription() {
 	taskOfVector->setDescription(Description);
 }
 
+//Method to edit the description of a task
 void TaskManager::editTaskDescription() {
 	int index;
 	std::string Description;
@@ -53,6 +65,7 @@ void TaskManager::editTaskDescription() {
 	}
 }
 
+//Method to set the priority of a task
 void TaskManager::setTaskPriority() {
 		Menu::clearScreen();
 		Menu priorityMenu("Set The Priority", { "Low", "Medium", "High" });
@@ -70,6 +83,7 @@ void TaskManager::setTaskPriority() {
 		}
 }
 
+//Method to edit the priority of a task
 void TaskManager::editTaskPriority() {
 	int index;
 	std::cout << "Input The Index Of The Task: ";
@@ -96,6 +110,7 @@ void TaskManager::editTaskPriority() {
 	}
 }
 
+//Method to set the status of a task
 void TaskManager::setTaskStatus() {
 		Menu::clearScreen();
 		Menu statusMenu("Set The Status", { "Done", "InProgress" });
@@ -110,6 +125,7 @@ void TaskManager::setTaskStatus() {
 		}
 }
 
+//Method to edit the status of a task
 void TaskManager::editTaskStatus() {
 	int index;
 	std::cout << "Input The Index Of The Task: ";
@@ -133,6 +149,7 @@ void TaskManager::editTaskStatus() {
 	}
 }
 
+//Method to add the new task
 void TaskManager::addTask() {
 	setTaskName();
 	setTaskDescription();
@@ -141,6 +158,7 @@ void TaskManager::addTask() {
 	taskOfVector = std::make_unique<Task>();
 }
 
+//Method to delete the new task
 void TaskManager::deleteTask() {
 	int index;
 	std::cout << "Input The Index Of The Task: ";
@@ -159,6 +177,7 @@ void TaskManager::deleteTask() {
  	}
 }
 
+//Method to display all tasks
 void TaskManager::showAll() const {
 	if (Tasks.size() > 0) {
 		for (size_t i = 0; i < Tasks.size(); ++i) {
@@ -171,6 +190,7 @@ void TaskManager::showAll() const {
 	}
 }
 
+//Method to display the only completed tasks
 void TaskManager::showCompleted() const {
 	bool taskIsDone = false;
 	if (Tasks.size() > 0) {
@@ -186,6 +206,7 @@ void TaskManager::showCompleted() const {
 	}
 }
 
+//Method to display the only the tasks with the status "In Progress"
 void TaskManager::showInProgress() const {
 	if (Tasks.size() > 0) {
 		bool taskIsInProgress = false;
@@ -201,6 +222,7 @@ void TaskManager::showInProgress() const {
 	}
 }
 
+//Method to show the Undone tasks
 void TaskManager::showUnDone() const {
 	if (Tasks.size() > 0) {
 		bool taskIsUnDone = false;
@@ -216,10 +238,12 @@ void TaskManager::showUnDone() const {
 	}
 }
 
+//Method to set the path to the file with data or create an empty one
 void TaskManager::setPathToFile(const std::string& path) {
 	filePath = path;
 }
 
+//Method to load data from the file
 void TaskManager::loadFromFile() {
 	std::ifstream File(filePath);
 	if (!File.is_open()) {
@@ -263,6 +287,7 @@ void TaskManager::loadFromFile() {
 	File.close();
 }
 
+//Method to save data to the file
 void TaskManager::saveToFile() const {
 	std::ofstream File(filePath);
 	if (!File.is_open()) {

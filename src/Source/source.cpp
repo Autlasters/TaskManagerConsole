@@ -1,3 +1,12 @@
+/*
+ * Source.cpp
+ *
+ * Contains the application entry point for the TaskManagerConsole project
+ * This file initializes the task manager, displays the main console menu, and routes user input to the appropriate application logic
+ *
+ * Built with C++ using CMake
+ *
+ */
 #include"../TaskLib/Task.h"
 #include"../MenuLib/Menu.h"
 #include"../TaskManagerLib/TaskManager.h"

@@ -1,3 +1,12 @@
+/*
+ * Menu.h
+ *
+ * This .h file represents the Menu class, which provides a simple text-based menu system
+ * for console applications. It enables keyboard-driven navigation and user selection through a structured menu interface
+ *
+ * Built with C++ using CMake
+ * 
+ */
 #pragma once
 #include<vector>
 #include<string>
